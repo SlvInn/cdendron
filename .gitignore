@@ -127,3 +127,26 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+tkn_ghub
+
+.matlab
+
+
+# old and tmp
+.old*
+*.old
+old_*
+*_old
+*_old.py
+*_v0
+*_v0.py
+*_tmp
+*_tmp.py
+
+*_SI
+*_SI.py
+
+
+# Archives
+*.zip

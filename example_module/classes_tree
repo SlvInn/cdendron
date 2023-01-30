@@ -1,0 +1,29 @@
+digraph {
+	node [shape=none]
+	edge [arrowtail=onormal dir=forward]
+	Student [label=<
+    <table border="1" cellborder="0" cellpadding="2" cellspacing="0" align="left">
+    <tr><td align="center">
+      <b>Student</b>
+    </td></tr>
+    <hr/><tr><td align="left" balign="left">school_name</td></tr>
+    <hr/><tr><td align="left" balign="left">calculate_age()<br/>show(self)</td></tr>
+    </table>>]
+	Vehicle [label=<
+    <table border="1" cellborder="0" cellpadding="2" cellspacing="0" align="left">
+    <tr><td align="center">
+      <b>Vehicle</b>
+    </td></tr>
+    <hr/><tr><td align="left" balign="left">brand_name</td></tr>
+    <hr/><tr><td align="left" balign="left">from_price(self, cls, name, price)<br/>show(self)</td></tr>
+    </table>>]
+	Car [label=<
+    <table border="1" cellborder="0" cellpadding="2" cellspacing="0" align="left">
+    <tr><td align="center">
+      <b>Car</b>
+    </td></tr>
+    <hr/><tr><td align="left" balign="left">brand_name<br/>model_name</td></tr>
+    <hr/><tr><td align="left" balign="left">average(self, distance, fuel_used)<br/>from_price(self, cls, name, price)<br/>show(self)</td></tr>
+    </table>>]
+	Vehicle -> Car [style=solid]
+}

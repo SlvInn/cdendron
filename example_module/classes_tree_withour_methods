@@ -1,0 +1,29 @@
+digraph {
+	node [shape=none]
+	edge [arrowtail=onormal dir=forward]
+	Student [label=<
+    <table border="1" cellborder="0" cellpadding="2" cellspacing="0" align="left">
+    <tr><td align="center">
+      <b>Student</b>
+    </td></tr>
+    <hr/><tr><td align="left" balign="left"></td></tr>
+    <hr/><tr><td align="left" balign="left"></td></tr>
+    </table>>]
+	Vehicle [label=<
+    <table border="1" cellborder="0" cellpadding="2" cellspacing="0" align="left">
+    <tr><td align="center">
+      <b>Vehicle</b>
+    </td></tr>
+    <hr/><tr><td align="left" balign="left"></td></tr>
+    <hr/><tr><td align="left" balign="left"></td></tr>
+    </table>>]
+	Car [label=<
+    <table border="1" cellborder="0" cellpadding="2" cellspacing="0" align="left">
+    <tr><td align="center">
+      <b>Car</b>
+    </td></tr>
+    <hr/><tr><td align="left" balign="left"></td></tr>
+    <hr/><tr><td align="left" balign="left"></td></tr>
+    </table>>]
+	Vehicle -> Car [style=solid]
+}
