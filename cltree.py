@@ -63,6 +63,7 @@ def get_userdef_classes(fld,ignore_str=IGNORED_STR,ext='.py'):
             # import the module from the file name
             __import__(f[:-3]) 
             
+            
             # only select user-defined classes in the module
             mod = [m for m in sys.modules.keys() if f[:-3] in m]
             classes_f = []
