@@ -86,6 +86,8 @@ def generate_tree(classes, **kwargs):
     """
 
     # get the class tree
+    # print('get the class tree')
+    # print(classes)
     classtree = getclasstree(classes, unique=True)
     # print(classtree)
     
@@ -102,7 +104,7 @@ def generate_digraph(classtree, show_object=False, **kwargs):# show_internal=Fal
     INPUT:
     classtree
     \n OPTIONS:
-    show_object (bool) - If True show the 'object' tree root (i.e. start teh digraph to an user-derfined 
+    show_object (bool) - If True show the 'object' tree root (i.e. start the digraph to an user-derfined 
                         class called 'object')  Default: False
     **kwargs - arguments to be passed to the class_node function  
     """
@@ -137,7 +139,7 @@ def generate_digraph(classtree, show_object=False, **kwargs):# show_internal=Fal
     return dot
 
 
-def class_node(cls, show_methods = True, show_internal=False, excluded_types= (BuiltinFunctionType), hide_override=set()): 
+def class_node(cls, show_methods = True, show_internal=False, show_private=False, excluded_types= (BuiltinFunctionType), hide_override=set()): 
     """ 
     Define a digraph node to be shown as a rectangular box divided in up to 3 sub-sections: 
     ____________________
@@ -182,6 +184,8 @@ def class_node(cls, show_methods = True, show_internal=False, excluded_types= (B
             
             # check if we are dealing with an interla or private method
             is_internal = attr.name[0] == '_' # this also include the check 'is_private' for which attr.name[:2] == '__'   
+            # is_private  = attr.name[:2] == '__' # this only check for private method of the class, not for the parents
+            is_private  = is_internal and ('__' in attr.name) # this checks for private method of the class and its parents
             
             # init a variable that defines if we must consider the method
             # ## show_this_att = True # show all
@@ -192,6 +196,9 @@ def class_node(cls, show_methods = True, show_internal=False, excluded_types= (B
             # eliminate internal and private methods
             if not show_internal: 
                 show_this_att = show_this_att and (not is_internal) # exclude private and internal methods
+                
+            if not show_private: 
+                show_this_att = show_this_att and (not is_private) # exclude private methods    
                 
             # hide override:
             show_this_att = show_this_att and attr.name not in hide_override
